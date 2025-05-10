@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan - Luh Weni Oktarini</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6b8e76",
+              secondary: "#587862",
+            },
+            fontFamily: {
+              yellowtail: ["Yellowtail", "cursive"],
+              eczar: ["Eczar", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("scroll-show");
+                observer.unobserve(entry.target); // agar tidak diulang
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        const hiddenElements = document.querySelectorAll(".scroll-hidden");
+        hiddenElements.forEach((el) => observer.observe(el));
+      });
+    </script>
+
+    <style>
+      /* Animasi scroll */
+      .scroll-hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s ease;
+      }
+
+      .scroll-show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body class="bg-white">
+    <!-- Cover Section -->
+    <div
+      class="cover fixed inset-0 w-full h-full bg-black flex justify-center items-center overflow-hidden z-50"
+      id="cover"
+    >
+      <img
+        src="./img/cover.jpg"
+        alt="Foto Undangan"
+        class="absolute w-full h-full object-cover opacity-50"
+      />
+      <div class="text-content z-10 text-center text-white animate-slideUp">
+        <h1 class="font-yellowtail text-5xl md:text-6xl mt-0 md:-mt-12">
+          Undangan
+        </h1>
+        <h2 class="font-yellowtail text-2xl md:text-3xl mb-2 font-normal">
+          Bayuh Oton, <br />Menek Kelih,<br />
+          Lan <br />
+          Metatah
+        </h2>
+        <h3 class="font-eczar text-xl md:text-2xl mb-4 font-normal">
+          Luh Weni Oktarini
+        </h3>
+        <p class="text-lg md:text-xl">Jumat, 11 Juli 2025</p>
+        <p class="text-lg md:text-xl mb-6">
+          Kepada Bapak/Ibu/Saudara/i <br />
+          <span
+            id="nama-tamu"
+            class="text-black font-bold text-xl md:text-2xl drop-shadow-md"
+            >Tamu</span
+          >
+        </p>
+        <div>
+          <a
+            href="#"
+            class="bg-white bg-opacity-75 py-2 px-4 rounded-full text-base md:text-lg text-gray-800 no-underline transition hover:bg-white"
+            onclick="bukaUndangan()"
+          >
+            <i class="fas fa-envelope mr-2"></i> Buka Undangan
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="undangan" class="isi hidden">
+      <!-- Opening Section -->
+      <section>
+        <div>
+          <img
+            src="./img/latar/cover(2).png"
+            alt="latar4"
+            class="w-95 md:w-24 lg:w-28 mt-2"
+          />
+        </div>
+      </section>
+      <section class="py-8 px-4 text-center">
+        <div
+          class="flower-container scroll-hidden flex justify-center scroll-hidden"
+        >
+          <img
+            src="./img/latar/bunga-tanpa.png"
+            alt="Bunga Dekoratif"
+            class="w-16 md:w-24 lg:w-28 mt-12"
+          />
+        </div>
+        <h2
+          class="font-yellowtail text-3xl md:text-4xl text-center my-12 scroll-hidden"
+        >
+          Om Swastyastu
+        </h2>
+        <p
+          class="text-base md:text-lg text-center px-4 md:px-16 lg:px-32 max-w-4xl mx-auto scroll-hidden"
+        >
+          Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang
+          Maha Esa kami bermaksud mengundang Bapak/Ibu/Saudara/i pada Upacara
+          Manusa Yadnya Bayuh Otonan, Menek Kelih, Lan Metatah (Potong Gigi)
+          Putri kami.
+        </p>
+        <h3 class="font-yellowtail text-2xl md:text-3xl my-4 scroll-hidden">
+          Luh Weni Oktarini
+        </h3>
+        <p class="text-base md:text-lg scroll-hidden">Putri Dari Pasangan</p>
+        <h4 class="font-eczar text-lg md:text-xl mt-2 scroll-hidden">
+          Nengah Suwariana & Luh Warna Aryati
+        </h4>
+      </section>
+
+      <!-- Quote Section -->
+      <section class="py-8">
+        <div
+          class="doa scroll-hidden bg-cover bg-center bg-no-repeat py-16"
+          style="background-image: url('./img/latar/doa.jpg')"
+        >
+          <div class="quote-box max-w-4xl mx-auto p-6 text-center">
+            <div
+              class="sanskrit italic text-lg md:text-xl lg:text-2xl mb-4 scroll-hidden"
+            >
+              Devan bhavayatanena te deva bhavayantu vah parasparam bhavayantah
+              sreyah param avapsyatha
+            </div>
+            <div class="source text-sm md:text-base mb-4 scroll-hidden">
+              (Bhagavad Gita 3:11)
+            </div>
+            <div class="translation text-base md:text-lg scroll-hidden">
+              Dengan ini (Yadnya), kami berbakti kepada Hyang Widhi dan dengan
+              ini pula Hyang Widhi memelihara dan mengasihi kamu. <br />
+              Dengan saling memelihara satu sama lain, kamu akan mencapai
+              kebaikan yang maha tinggi.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Event Information Section -->
+      <section class="informasi py-8 px-4 scroll-hidden">
+        <h2
+          class="font-yellowtail text-3xl md:text-4xl text-center mb-8 scroll-hidden"
+        >
+          Informasi Acara
+        </h2>
+        <div
+          class="card-resepsi bg-primary text-white rounded-lg overflow-hidden w-full max-w-md mx-auto shadow-lg"
+        >
+          <div
+            class="card-header text-center py-4 font-bold tracking-wide border-b border-white border-opacity-30 scroll-hidden"
+          >
+            WAKTU ACARA
+          </div>
+          <div
+            class="card-body flex flex-col md:flex-row justify-around items-center p-6 border-b border-white border-opacity-30"
+          >
+            <div class="card-item text-center mb-4 md:mb-0">
+              <i class="fas fa-clock text-2xl mb-2 icon scroll-hidden"></i>
+              <div class="text-base scroll-hidden">13.00 - 15.30 WITA</div>
+            </div>
+            <div class="card-item text-center">
+              <i
+                class="fas fa-calendar-alt text-2xl mb-2 icon scroll-hidden"
+              ></i>
+              <div class="text-base scroll-hidden">Jumat, 11 Juli 2025</div>
+            </div>
+          </div>
+          <div
+            class="card-footer text-center py-4 text-sm opacity-80 scroll-hidden"
+          >
+            Di harapkan untuk datang tepat waktu <br />
+            (Waktu dan tempat terbatas)
+          </div>
+        </div>
+
+        <div
+          class="maps-container scroll-hidden mt-12 text-center max-w-4xl mx-auto"
+        >
+          <h3 class="font-eczar text-xl md:text-2xl mb-4 scroll-hidden">
+            Lokasi Acara
+          </h3>
+          <div
+            class="maps-responsive relative w-full h-64 md:h-96 flex justify-center items-center scroll-hidden"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.140331549614!2d115.2251066736548!3d-8.678202291369809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240f08b2e1db9%3A0xa375af741962e2e1!2sPadukuhan%20PAKU%20WANA!5e0!3m2!1sid!2sid!4v1744944703544!5m2!1sid!2sid"
+              class="w-10/12 md:w-9/12 h-56 md:h-80 rounded-lg"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="btn-maps-wrapper text-center mt-6 scroll-hidden">
+          <a
+            href="https://maps.app.goo.gl/oA2HCFgMgkCn8XK88"
+            target="_blank"
+            class="btn-maps bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded-lg inline-flex items-center shadow-lg"
+          >
+            <i class="fas fa-map-marker-alt mr-2"></i> Lihat Lokasi di Google
+            Maps
+          </a>
+        </div>
+      </section>
+
+      <!-- Decorative Leaf Section -->
+      <section class="py-8">
+        <div
+          class="daun scroll-hidden flex justify-center items-center p-8 scroll-hidden"
+        >
+          <img
+            src="./img/latar/daun-tnpa.png"
+            alt="Daun dekoratif"
+            class="w-20 md:w-28"
+          />
+        </div>
+      </section>
+
+      <!-- Closing Message Section -->
+      <section class="py-8">
+        <div class="penutup scroll-hidden text-center px-4">
+          <p class="text-base md:text-lg max-w-3xl mx-auto mb-4 scroll-hidden">
+            Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/
+            Ibu/ Saudara/i berkenan hadir untuk memberikan doa restu.
+          </p>
+          <p class="text-base md:text-lg max-w-3xl mx-auto mb-8 scroll-hidden">
+            Atas kehadiran dan doa restunya kami ucapkan terimakasih
+          </p>
+          <h2
+            class="font-yellowtail text-3xl md:text-4xl text-center my-8 scroll-hidden"
+          >
+            Om Shanti Shanti Shanti Om
+          </h2>
+          <h4 class="font-eczar text-lg md:text-xl scroll-hidden">
+            Kami yang berbahagia <br />
+            Kel. Nengah Suwariana <br />& <br />
+            Luh Warna Aryati
+          </h4>
+        </div>
+      </section>
+
+      <!-- Digital Envelope Section -->
+      <section class="py-8">
+        <div class="amplop scroll-hidden text-center px-4">
+          <h2
+            class="font-yellowtail text-3xl md:text-4xl text-center mb-8 scroll-hidden"
+          >
+            Amplop Digital
+          </h2>
+          <p class="text-base md:text-lg max-w-3xl mx-auto mb-8 scroll-hidden">
+            Doa Restu Anda merupakan karunia yang sangat berarti bagi kami.<br />
+            Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat
+            memberi kado cashless melalui transfer.
+          </p>
+          <button
+            class="open-button bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg font-medium mx-auto block scroll-hidden"
+            onclick="openModal()"
+          >
+            <i class="fas fa-envelope-open-text mr-2"></i> Kirim Amplop
+          </button>
+
+          <!-- Modal -->
+          <div
+            id="amplopModal"
+            class="modal hidden fixed inset-0 z-50 scroll-hidden"
+          >
+            <div
+              class="modal-content bg-white rounded-2xl p-6 w-11/12 max-w-lg mx-auto mt-3 relative"
+            >
+              <span
+                class="close absolute top-4 right-6 text-2xl font-bold text-gray-700 cursor-pointer"
+                onclick="closeModal()"
+                >&times;</span
+              >
+              <p class="mb-4 text-lg">
+                Silahkan melakukan transfer ke rekening berikut:
+              </p>
+
+              <div class="bank-box bg-gray-100 rounded-2xl p-4 mb-4">
+                <img
+                  src="./img/bank/bca2.jpg"
+                  class="bank-logo h-12 mb-2 mx-auto"
+                  alt="BCA"
+                />
+                <div class="norek text-lg font-medium">767 0849362</div>
+                <div class="text-gray-700 mb-2">a/n Luh Weni Oktarini</div>
+                <button
+                  class="copy-button bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium"
+                  onclick="copyText('7670849362')"
+                >
+                  COPY NO REKENING
+                </button>
+              </div>
+
+              <div class="bank-box bg-gray-100 rounded-2xl p-4">
+                <img
+                  src="./img/bank/bri2.jpg"
+                  class="bank-logo h-12 mb-2 mx-auto"
+                  alt="BRI"
+                />
+                <div class="norek text-lg font-medium">0970 01009719508</div>
+                <div class="text-gray-700 mb-2">a/n Luh Weni Oktarini</div>
+                <button
+                  class="copy-button bg-primary hover:bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium"
+                  onclick="copyText('097001009719508')"
+                >
+                  COPY NO REKENING
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="end mt-16">
+            <h2
+              class="font-yellowtail text-3xl md:text-4xl text-center scroll-hidden"
+            >
+              Matur Suksma
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="footer-undangan bg-primary text-white text-center py-4 px-4 mt-8 rounded-t-3xl"
+      >
+        <p class="my-2 text-sm md:text-base">
+          Terima kasih atas doa dan kehadiran Anda
+        </p>
+        <p class="my-2 text-sm md:text-base">
+          <i class="fab fa-instagram mr-1"></i>
+          <a
+            href="https://www.instagram.com/undangan.digital.05/"
+            target="_blank"
+            class="text-white hover:underline"
+            >@undangan.digital.05</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <!-- Notification for copy function -->
+    <div class="copy-feedback hidden" id="copyFeedback">Berhasil disalin!</div>
+
+    <!-- Audio Control -->
+    <audio id="audio" preload="auto" loop>
+      <source src="./audio/audio-tanpa.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Music Button -->
+    <button
+      class="music-btn fixed bottom-5 right-5 text-4xl bg-transparent border-none text-black z-50 hidden"
+      id="music-btn"
+      onclick="toggleMusic()"
+    >
+      <i id="music-icon" class="fas fa-pause-circle"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+      // URL Parameter Script
+      const urlParams = new URLSearchParams(window.location.search);
+      const namaTamu = urlParams.get("untuk");
+
+      if (namaTamu) {
+        document.getElementById("nama-tamu").textContent = decodeURIComponent(
+          namaTamu.replace(/\+/g, " ")
+        );
+      }
+
+      // Open Invitation Script
+      function bukaUndangan() {
+        const cover = document.getElementById("cover");
+        const undangan = document.getElementById("undangan");
+
+        // Hide cover with animation
+        cover.classList.add("hidden");
+
+        setTimeout(() => {
+          // Show invitation
+          undangan.classList.remove("hidden");
+          undangan.classList.add("block");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+
+          // Start playing music
+          playMusic();
+
+          sessionStorage.setItem("undanganDibuka", "true");
+        }, 1000);
+      }
+
+      // Check if invitation was already opened
+      window.onload = function () {
+        if (sessionStorage.getItem("undanganDibuka")) {
+          const cover = document.getElementById("cover");
+          const undangan = document.getElementById("undangan");
+
+          cover.classList.add("hidden");
+          undangan.classList.remove("hidden");
+          undangan.classList.add("block");
+
+          document.getElementById("music-btn").classList.remove("hidden");
+          document.getElementById("music-btn").classList.add("block");
+
+          // Try to play music
+          playMusic();
+
+          sessionStorage.removeItem("undanganDibuka");
+        }
+      };
+
+      // Amplop/Gift Modal
+      function openModal() {
+        document.getElementById("amplopModal").classList.remove("hidden");
+        document.getElementById("amplopModal").classList.add("flex");
+      }
+
+      function closeModal() {
+        document.getElementById("amplopModal").classList.add("hidden");
+        document.getElementById("amplopModal").classList.remove("flex");
+      }
+
+      function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          // Show custom notification instead of alert
+          const feedback = document.getElementById("copyFeedback");
+          feedback.classList.remove("hidden");
+          feedback.classList.add("show");
+
+          setTimeout(() => {
+            feedback.classList.remove("show");
+            setTimeout(() => {
+              feedback.classList.add("hidden");
+            }, 300);
+          }, 2000);
+        });
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("amplopModal");
+        if (event.target == modal) {
+          closeModal();
+        }
+      };
+
+      // Scroll Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("scroll-show");
+                observer.unobserve(entry.target); // Stop observing once shown
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        const hiddenElements = document.querySelectorAll(".scroll-hidden");
+        hiddenElements.forEach((el) => observer.observe(el));
+      });
+
+      // Music Controls
+      const audio = document.getElementById("audio");
+      const musicBtn = document.getElementById("music-btn");
+      const musicIcon = document.getElementById("music-icon");
+
+      function toggleMusic() {
+        if (audio.paused) {
+          audio.play();
+          musicIcon.className = "fas fa-pause-circle";
+        } else {
+          audio.pause();
+          musicIcon.className = "fas fa-play-circle";
+        }
+      }
+
+      function playMusic() {
+        audio
+          .play()
+          .then(() => {
+            musicBtn.classList.remove("hidden");
+            musicBtn.classList.add("block");
+          })
+          .catch((e) => {
+            console.log("Autoplay blocked. Click music icon to play.");
+            musicBtn.classList.remove("hidden");
+            musicBtn.classList.add("block");
+            musicIcon.className = "fas fa-play-circle";
+          });
+      }
+    </script>
+
+    <!-- animasi scrol -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("scroll-show");
+                observer.unobserve(entry.target); // agar tidak diulang
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        const hiddenElements = document.querySelectorAll(".scroll-hidden");
+        hiddenElements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
